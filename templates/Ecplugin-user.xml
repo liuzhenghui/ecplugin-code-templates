@@ -1,0 +1,12 @@
+<templateSet group="Ecplugin-user">
+  <template name="ecUserCurrent" value="User user = HrmUserVarify.getUser(request, response);" description="ecplugin 用户-获取当前Request用户" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ecUserSession" value="User user = (User) request.getSession(true).getAttribute(&quot;weaver_user@bean&quot;);" description="ecplugin 用户-获取当前Session用户" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
