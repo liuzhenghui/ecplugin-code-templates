@@ -1,0 +1,14 @@
+#set($dir = ${DIR_PATH})
+#if (${DIR_PATH} && ${DIR_PATH} != "")
+    #set($start=$dir.lastIndexOf("/") + 1)
+    #set($dir=$dir.substring($start))
+#end
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weaver.mapper.ecplugin.$dir.${NAME}">
+
+    <select id="getName" resultType="java.lang.String">
+        select lastname from hrmresource where id=#{id}
+    </select>
+
+</mapper>

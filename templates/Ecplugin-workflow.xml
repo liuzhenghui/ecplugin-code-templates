@@ -1,0 +1,12 @@
+<templateSet group="Ecplugin-workflow">
+  <template name="ecWfNextNodeInfo" value="// import com.engine.workflowDesign.biz.AutoForecastBiz;&#10;// import weaver.workflow.request.RequestNodeFlow;&#10;RequestNodeFlow requestNodeFlow = new AutoForecastBiz().getRequestNodeFlow(requestId, currNodeId, user);&#10;requestNodeFlow.getNextNodes();     // 计算下一节点、操作人信息&#10;List &lt;String&gt; nextNodeIds = requestNodeFlow.getNextnodeids();" description="ecplugin 流程-获取下一节点" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ecWfSubmit" value="&#10;// import weaver.soa.workflow.request.RequestService;&#10;&#10;RequestService requestService = new RequestService();&#10;RequestInfo requestInfo = requestService.getRequest(requestId);&#10;boolean result = requestService.nextNodeBySubmit(requestInfo, requestId, userId, remark);" description="ecplugin 流程-提交" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,5 +1,5 @@
 <templateSet group="Ecplugin">
-  <template name="ecapipost" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;POST&quot;)&#10;@POST&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;$resultType$&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @FormParam(&quot;$param$&quot;) String $param$&#10;    ) {&#10;    ApiResult&lt;$resultType$&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        &#10;        result.success($END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="创建post接口" toReformat="true" toShortenFQNames="true">
+  <template name="ecApiPost" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;POST&quot;)&#10;@POST&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;$resultType$&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @FormParam(&quot;$param$&quot;) String $param$&#10;    ) {&#10;    ApiResult&lt;$resultType$&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        &#10;        result.success($END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="ecplugin api-创建post接口" toReformat="true" toShortenFQNames="true">
     <variable name="desc" expression="" defaultValue="接口说明" alwaysStopAt="true" />
     <variable name="path" expression="" defaultValue="路径" alwaysStopAt="true" />
     <variable name="resultType" expression="" defaultValue="返回类型" alwaysStopAt="true" />
@@ -8,7 +8,7 @@
       <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
-  <template name="ecapiget" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;GET&quot;)&#10;@GET&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;$resultType$&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @QueryParam(&quot;$param$&quot;) String $param$&#10;    ) {&#10;    ApiResult&lt;$resultType$&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        &#10;        result.success($END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="创建get接口" toReformat="false" toShortenFQNames="true">
+  <template name="ecApiGet" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;GET&quot;)&#10;@GET&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;$resultType$&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @QueryParam(&quot;$param$&quot;) String $param$&#10;    ) {&#10;    ApiResult&lt;$resultType$&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        &#10;        result.success($END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="ecplugin api-创建get接口" toReformat="false" toShortenFQNames="true">
     <variable name="desc" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="resultType" expression="" defaultValue="" alwaysStopAt="true" />
@@ -17,23 +17,13 @@
       <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
-  <template name="ecapipage" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;GET&quot;)&#10;@GET&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;PageDto&lt;$resultType$&gt;&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @QueryParam(&quot;$param$&quot;) String $param$,&#10;        @ApiParam(&quot;每页行数&quot;) @QueryParam(&quot;pageSize&quot;) Integer pageSize,&#10;        @ApiParam(&quot;页码&quot;) @QueryParam(&quot;pageNum&quot;) Integer pageNum&#10;    ) {&#10;    ApiResult&lt;PageDto&lt;$resultType$&gt;&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        if (pageSize == null || pageSize &lt;= 0) {&#10;            pageSize = 10;&#10;        }&#10;        if (pageNum == null || pageNum &lt;= 0) {&#10;            pageNum = 0;&#10;        }&#10;&#10;        result.success(null$END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="创建分页接口" toReformat="false" toShortenFQNames="true">
+  <template name="ecApiPage" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;GET&quot;)&#10;@GET&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;PageDto&lt;$resultType$&gt;&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @QueryParam(&quot;$param$&quot;) String $param$,&#10;        @ApiParam(&quot;每页行数&quot;) @QueryParam(&quot;pageSize&quot;) Integer pageSize,&#10;        @ApiParam(&quot;页码&quot;) @QueryParam(&quot;pageNum&quot;) Integer pageNum&#10;    ) {&#10;    ApiResult&lt;PageDto&lt;$resultType$&gt;&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        if (pageSize == null || pageSize &lt;= 0) {&#10;            pageSize = 10;&#10;        }&#10;        if (pageNum == null || pageNum &lt;= 0) {&#10;            pageNum = 0;&#10;        }&#10;&#10;        result.success(null$END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="ecplugin api-创建分页接口" toReformat="false" toShortenFQNames="true">
     <variable name="desc" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="resultType" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="param" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_DECLARATION" value="true" />
-    </context>
-  </template>
-  <template name="ecwfSubmit" value="&#10;// import weaver.soa.workflow.request.RequestService;&#10;&#10;RequestService requestService = new RequestService();&#10;RequestInfo requestInfo = requestService.getRequest(requestId);&#10;boolean result = requestService.nextNodeBySubmit(requestInfo, requestId, userId, remark);" description="ecplugin 流程-提交" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="JAVA_STATEMENT" value="true" />
-    </context>
-  </template>
-  <template name="ecwfNextnodeinfo" value="// import com.engine.workflowDesign.biz.AutoForecastBiz;&#10;// import weaver.workflow.request.RequestNodeFlow;&#10;RequestNodeFlow requestNodeFlow = new AutoForecastBiz().getRequestNodeFlow(requestId, currNodeId, user);&#10;List &lt;String&gt; nextNodeIds = requestNodeFlow.getNextnodeids();" description="ecplugin 流程-获取下一节点" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="JAVA_STATEMENT" value="true" />
     </context>
   </template>
   <template name="ecLog" value="log.info(&quot;$METHOD_NAME$::$PLACE_HOLDERS$&quot;,$ARGUMENTS$);" description="打印日志" toReformat="false" toShortenFQNames="true">
@@ -41,7 +31,66 @@
     <variable name="PLACE_HOLDERS" expression="" defaultValue="groovyScript(&quot;_1.collect { it + ' = [{}]'}.join(', ') &quot;, methodParameters())" alwaysStopAt="true" />
     <variable name="ARGUMENTS" expression="" defaultValue="groovyScript(&quot;_1.collect { it }.join(', ') &quot;, methodParameters())" alwaysStopAt="true" />
     <context>
-      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlCount" value="&lt;!-- 统计$remark$总数 --&gt;&#10;&lt;select id=&quot;$id$&quot; resultType=&quot;java.lang.Integer&quot;&gt;&#10;    select count(1) from $tablename$ where id=#{id}&#10;&lt;/select&gt;" description="ecplugin mybatis-统计总数" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlForeach" value="and id in&#10;&lt;foreach collection=&quot;idList&quot; item=&quot;id&quot; index=&quot;index&quot; open=&quot;(&quot; close=&quot;)&quot; separator=&quot;,&quot;&gt;&#10;    #{id}&#10;&lt;/foreach&gt;" description="ecplugin mybatis-foreach" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlInsert" value="&lt;!-- 插入$remark$ --&gt;&#10;&lt;insert id=&quot;insert$name$&quot;&gt;&#10;    insert into $tablename$ (mainid,name) values(#{mainid},#{name})&#10;&lt;/insert&gt;" description="ecplugin mybatis-insert" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlLikeids" value="and concat(',',ids,',') like concat('%,',#{ids},',%')" description="ecplugin mybatis-likeids" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlSelect" value="&lt;!-- 查询$remark$列表 --&gt;&#10;&lt;select id=&quot;$id$&quot; resultType=&quot;$resultType$&quot;&gt;&#10;    select * from $tablename$ where id=#{id}&#10;&lt;/select&gt;" description="ecplugin mybatis-查询列表" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="resultType" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlUpdate" value="&lt;!-- 更新$remark$ --&gt;&#10;&lt;update id=&quot;update$name$&quot;&gt;&#10;    update $tablename$ set field1=#{field1},field2=#{field2} where id=#{id}&#10;&lt;/update&gt;" description="ecplugin mybatis-更新" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlWhere" value="&lt;where&gt;&#10;&#10;&lt;/where&gt;" description="ecplugin mybatis-条件" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XML" value="true" />
+      <option name="XML_ATTRIBUTE" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlWhereif" value="&lt;where&gt;&#10;    &lt;if test=&quot;id != null and id != ''&quot;&gt;&#10;        and id=#{id}&#10;    &lt;/if&gt;&#10;&lt;/where&gt;" description="ecplugin mybatis-whereif" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSqlWherelike" value="&lt;where&gt;&#10;    &lt;if test=&quot;ids != null&quot;&gt;&#10;        and concat(',',ids,',') like concat('%,',#{ids},',%')&#10;    &lt;/if&gt;&#10;&lt;/where&gt;" description="ecplugin mybatis-whereif" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XML_TEXT" value="true" />
     </context>
   </template>
 </templateSet>
