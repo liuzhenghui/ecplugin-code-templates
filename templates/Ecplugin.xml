@@ -1,0 +1,39 @@
+<templateSet group="Ecplugin">
+  <template name="ecapipost" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;POST&quot;)&#10;@POST&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;$resultType$&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @FormParam(&quot;$param$&quot;) String $param$&#10;    ) {&#10;    ApiResult&lt;$resultType$&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        &#10;        result.success($END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="创建post接口" toReformat="true" toShortenFQNames="true">
+    <variable name="desc" expression="" defaultValue="接口说明" alwaysStopAt="true" />
+    <variable name="path" expression="" defaultValue="路径" alwaysStopAt="true" />
+    <variable name="resultType" expression="" defaultValue="返回类型" alwaysStopAt="true" />
+    <variable name="param" expression="" defaultValue="参数" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="ecapiget" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;GET&quot;)&#10;@GET&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;$resultType$&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @QueryParam(&quot;$param$&quot;) String $param$&#10;    ) {&#10;    ApiResult&lt;$resultType$&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        &#10;        result.success($END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="创建get接口" toReformat="false" toShortenFQNames="true">
+    <variable name="desc" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="resultType" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="param" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="ecapipage" value="@ApiOperation(value = &quot;$desc$&quot;, notes = &quot;&quot;, httpMethod = &quot;GET&quot;)&#10;@GET&#10;@Path(&quot;/$path$&quot;)&#10;@Produces(MediaType.APPLICATION_JSON)&#10;public ApiResult&lt;PageDto&lt;$resultType$&gt;&gt; $path$(&#10;        @ApiParam(value = &quot;$param$&quot;, required = true) @QueryParam(&quot;$param$&quot;) String $param$,&#10;        @ApiParam(&quot;每页行数&quot;) @QueryParam(&quot;pageSize&quot;) Integer pageSize,&#10;        @ApiParam(&quot;页码&quot;) @QueryParam(&quot;pageNum&quot;) Integer pageNum&#10;    ) {&#10;    ApiResult&lt;PageDto&lt;$resultType$&gt;&gt; result = new ApiResult&lt;&gt;();&#10;    try {&#10;        if (StringUtils.isBlank($param$)) {&#10;            throw new IllegalArgumentException(&quot;参数[$param$]不能为空&quot;);&#10;        }&#10;        if (pageSize == null || pageSize &lt;= 0) {&#10;            pageSize = 10;&#10;        }&#10;        if (pageNum == null || pageNum &lt;= 0) {&#10;            pageNum = 0;&#10;        }&#10;&#10;        result.success(null$END$);&#10;    } catch (IllegalArgumentException e) {&#10;        log.warn(e.getMessage());&#10;        result.fail(e.getMessage());&#10;    } catch (Exception e) {&#10;        log.error(&quot;$path$&quot;, e);&#10;        result.fail(e.getMessage());&#10;    }&#10;    return result;&#10;}" description="创建分页接口" toReformat="false" toShortenFQNames="true">
+    <variable name="desc" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="resultType" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="param" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="ecwfSubmit" value="&#10;// import weaver.soa.workflow.request.RequestService;&#10;&#10;RequestService requestService = new RequestService();&#10;RequestInfo requestInfo = requestService.getRequest(requestId);&#10;boolean result = requestService.nextNodeBySubmit(requestInfo, requestId, userId, remark);" description="ecplugin 流程-提交" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ecwfNextnodeinfo" value="// import com.engine.workflowDesign.biz.AutoForecastBiz;&#10;// import weaver.workflow.request.RequestNodeFlow;&#10;RequestNodeFlow requestNodeFlow = new AutoForecastBiz().getRequestNodeFlow(requestId, currNodeId, user);&#10;List &lt;String&gt; nextNodeIds = requestNodeFlow.getNextnodeids();" description="ecplugin 流程-获取下一节点" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
