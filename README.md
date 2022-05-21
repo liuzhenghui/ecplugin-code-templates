@@ -1,7 +1,11 @@
 ## 使用方法1
 
-1. idea 中配置
-   ![](readme/img1.png#crop=0&crop=0&crop=1&crop=1&id=L8JGw&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+1. 第一次手动导入设置
+   
+   https://gitee.com/liuzhenghui/ecplugin-code-templates/raw/master/settings-import.zip
+   
+2. idea 中配置在线自动更新
+   <img src="readme/img1.png" alt="图片磊小" style="zoom:50%;" />
 
 ## 清单
 | 分类 | 缩写 | 范围 |
