@@ -1,6 +1,6 @@
 ## 代码模板说明
 
-​    本仓库整理了开发中常用到的一些代码块，以idea模板方式提供使用。目标是减少开发中重复编码和到处查找资料的问题，提高编码效率。
+​        本仓库整理了开发中常用到的一些代码块，以idea模板方式提供使用。目标是减少开发中重复编码和到处查找资料的问题，提高编码效率。效果见下图：
 
 
 ![](readme/img1.gif)
@@ -9,13 +9,16 @@
 
 1. 导入设置
    
-   https://gitee.com/liuzhenghui/ecplugin-code-templates/raw/master/settings-import.zip
+   文件下载：https://gitee.com/liuzhenghui/ecplugin-code-templates/raw/master/settings-import.zip
+
+   ![](readme/img2.png)
+   
    
 2. 配置在线自动更新
 
    URL填写本仓库地址：```https://gitee.com/liuzhenghui/ecplugin-code-templates.git```
 
-   ![](readme/img2.png)
+   ![](readme/img3.png)
 
 
 
