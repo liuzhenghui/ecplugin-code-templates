@@ -5,7 +5,7 @@
    https://gitee.com/liuzhenghui/ecplugin-code-templates/raw/master/settings-import.zip
    
 2. idea 中配置在线自动更新
-   <img src="readme/img1.png" alt="图片磊小" style="zoom:50%;" />
+   <img src="readme/img1.png" alt="图片磊小" style="width:60%" />
 
 ## 清单
 | 分类 | 缩写 | 范围 |
