@@ -36,4 +36,12 @@
       <option name="JAVA_STATEMENT" value="true" />
     </context>
   </template>
+  <template name="ecLog" value="log.info(&quot;$METHOD_NAME$::$PLACE_HOLDERS$&quot;,$ARGUMENTS$);" description="打印日志" toReformat="false" toShortenFQNames="true">
+    <variable name="METHOD_NAME" expression="" defaultValue="methodName()" alwaysStopAt="true" />
+    <variable name="PLACE_HOLDERS" expression="" defaultValue="groovyScript(&quot;_1.collect { it + ' = [{}]'}.join(', ') &quot;, methodParameters())" alwaysStopAt="true" />
+    <variable name="ARGUMENTS" expression="" defaultValue="groovyScript(&quot;_1.collect { it }.join(', ') &quot;, methodParameters())" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
 </templateSet>
