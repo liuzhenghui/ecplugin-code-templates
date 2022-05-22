@@ -13,7 +13,6 @@
 
    ![](readme/img2.png)
    
-   
 2. 配置在线自动更新
 
    URL填写本仓库地址：```https://gitee.com/liuzhenghui/ecplugin-code-templates.git```
