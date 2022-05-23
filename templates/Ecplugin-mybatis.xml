@@ -1,0 +1,59 @@
+<templateSet group="Ecplugin-mybatis">
+  <template name="ecCountSql" value="&lt;!-- 统计$remark$总数 --&gt;&#10;&lt;select id=&quot;$id$&quot; resultType=&quot;java.lang.Integer&quot;&gt;&#10;    select count(1) from $tablename$ where id=#{id}&#10;&lt;/select&gt;" description="ecplugin mybatis-统计总数" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecForeachSql" value="and id in&#10;&lt;foreach collection=&quot;idList&quot; item=&quot;id&quot; index=&quot;index&quot; open=&quot;(&quot; close=&quot;)&quot; separator=&quot;,&quot;&gt;&#10;    #{id}&#10;&lt;/foreach&gt;" description="ecplugin mybatis-foreach" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecInsertSql" value="&lt;!-- 插入$remark$ --&gt;&#10;&lt;insert id=&quot;insert$name$&quot;&gt;&#10;    insert into $tablename$ (mainid,name) values(#{mainid},#{name})&#10;&lt;/insert&gt;" description="ecplugin mybatis-insert" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecLikeIdsSql" value="and concat(',',ids,',') like concat('%,',#{ids},',%')" description="ecplugin mybatis-likeIds" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecSelectSql" value="&lt;!-- 查询$remark$列表 --&gt;&#10;&lt;select id=&quot;$id$&quot; resultType=&quot;$resultType$&quot;&gt;&#10;    select * from $tablename$ where id=#{id}&#10;&lt;/select&gt;" description="ecplugin mybatis-查询列表" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="resultType" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecUpdateSql" value="&lt;!-- 更新$remark$ --&gt;&#10;&lt;update id=&quot;update$name$&quot;&gt;&#10;    update $tablename$ set field1=#{field1},field2=#{field2} where id=#{id}&#10;&lt;/update&gt;" description="ecplugin mybatis-更新" toReformat="true" toShortenFQNames="true">
+    <variable name="remark" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tablename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecWhereifSql" value="&lt;where&gt;&#10;    &lt;if test=&quot;id != null and id != ''&quot;&gt;&#10;        and id=#{id}&#10;    &lt;/if&gt;&#10;&lt;/where&gt;" description="ecplugin mybatis-whereif" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ecWherelikeSql" value="&lt;where&gt;&#10;    &lt;if test=&quot;ids != null&quot;&gt;&#10;        and concat(',',ids,',') like concat('%,',#{ids},',%')&#10;    &lt;/if&gt;&#10;&lt;/where&gt;" description="ecplugin mybatis-whereif" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+</templateSet>
